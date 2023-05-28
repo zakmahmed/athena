@@ -8,12 +8,24 @@ import random
 import sys
 import pyjokes 
 
-
+MASTER = 'Zakariya'
 
 class Athena:
     def __init__(self):
-        self.speak("Initializing...")
+        self.greeting()
         self.run()
+
+    def greeting(self):
+        self.current_hour = int(time.strftime("%H"))
+
+        match self.current_hour:
+            case _ if self.current_hour > 0 and self.current_hour < 12:
+                self.speak(f'Good Morning, {MASTER}')
+            case _ if self.current_hour >= 12  and self.current_hour < 17:
+                self.speak(f'Good Afternoon, {MASTER}')
+            case _ if self.current_hour >= 17:
+                self.speak(f'Good Evening, {MASTER}')
+
 
     def run(self):
         self.speak("Hey Zak what can I do for you?")
