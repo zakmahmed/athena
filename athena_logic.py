@@ -6,7 +6,7 @@ from gtts import gTTS
 import playsound
 import random
 import sys
-import selenium
+import pyjokes 
 
 
 
@@ -59,6 +59,9 @@ class Athena:
             t = time.localtime()
             self.current_time = time.strftime("%I:%M %p",t)
             self.speak(self.current_time)
+
+        if "joke" in data:
+            self.speak(pyjokes.get_joke(category='neutral'))
 
 
 
