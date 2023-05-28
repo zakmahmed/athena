@@ -1,32 +1,32 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel
+from PyQt6.QtWidgets import QApplication, QMainWindow, QSystemTrayIcon
 from PyQt6.QtGui import QIcon, QPixmap, QColor
 from PyQt6.QtCore import QSize, Qt
+import os
+
+
+imagePath = 'Athena/icon.png'
 
 class AthenaGUI(QMainWindow):
     def __init__(self):
         super(AthenaGUI, self).__init__()
-        self.GuiInit()
+        self.guiInit()
 
-    def GuiInit(self):
+    def guiInit(self):
         self.setWindowTitle('Athena')
-        self.setMinimumSize(QSize(200,300))
-
-        self.label = QLabel()
-        self.pixmap = QPixmap('icon.png')
-        self.label.setPixmap(self.pixmap)
-        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.setCentralWidget(self.label)
+        self.setMinimumSize(QSize(200,300))     
 
         self.myPalette = self.palette()
         self.myPalette.setColor(self.backgroundRole(), QColor(255,255,255))
         self.setPalette(self.myPalette)
 
 
-        self.show()
+        
         
 
     
 app = QApplication(sys.argv)
+app.setWindowIcon(QIcon(imagePath))
 window = AthenaGUI()
+window.show()
 sys.exit(app.exec())
