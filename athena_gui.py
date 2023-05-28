@@ -1,8 +1,7 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QSystemTrayIcon
+from PyQt6.QtWidgets import QApplication, QMainWindow, QLabel
 from PyQt6.QtGui import QIcon, QPixmap, QColor
 from PyQt6.QtCore import QSize, Qt
-import os
 
 
 imagePath = 'Athena/icon.png'
@@ -20,8 +19,9 @@ class AthenaGUI(QMainWindow):
         self.myPalette.setColor(self.backgroundRole(), QColor(255,255,255))
         self.setPalette(self.myPalette)
 
-
-        
+        self.interfaceImage = QLabel()
+        self.interfaceImage.setPixmap(QPixmap(imagePath))
+        self.setCentralWidget(self.interfaceImage)
         
 
     
