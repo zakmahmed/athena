@@ -10,7 +10,7 @@ from googleapiclient.errors import HttpError
 SCOPE = ['https://www.googleapis.com/auth/calendar']
 
 
-def main():
+def login():
 
     cred = None
 
@@ -28,6 +28,11 @@ def main():
 
         with open('token.json', 'w') as token:
             token.write(cred.to_json())
+
+    return cred
+
+
+def view_events(cred):
 
     try:
         service = build('calendar', 'v3', credentials=cred)

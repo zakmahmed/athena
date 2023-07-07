@@ -4,4 +4,5 @@ import athena_calendar as c
 
 if __name__ == '__main__':
     # athena = Athena()
-    c.main()
+    cred = c.login()
+    c.view_events(cred)
